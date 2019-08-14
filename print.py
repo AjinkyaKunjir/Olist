@@ -25,7 +25,7 @@ def heartbeat():
 
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
-    df = pd.read_csv('.\\datasets\\Sentiment Analysis\\olist_reviews.csv')
+    df = pd.read_csv('datasets\\olist_reviews.csv')
     df["Sentiment"] = df["review_score"].apply(
         lambda rating: "Positive" if rating > 3 else "Negative"
     )
