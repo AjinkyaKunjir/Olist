@@ -26,10 +26,6 @@ def index():
 def heartbeat():
     return "200 OK"
 
-@app.route("/ingest", methods=["GET"])
-def ingestPOST():
-    return recommendData
-
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
     df = pd.read_csv('./datasets/olist_reviews.csv')
@@ -47,18 +43,6 @@ def sentimentAnalysis():
         response['productName'] = productName
 
     return render_template("sentimentAnalysis.html", response=response)
-
-@app.route("/ingest", methods=["POST"])
-def ingestPOST():
-    data = request.get_json()
-    print(type(data))
-    recommendData[data["query"]] = data["items"]
-    print(recommendData)
-    return recommendData
-
-@app.route("/ingest", methods=["GET"])
-def ingestPOST():
-    return recommendData
 
 if __name__ == '__main__':
     print("ok")
