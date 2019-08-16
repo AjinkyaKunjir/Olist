@@ -40,6 +40,10 @@ def sentimentAnalysis():
         response['productName'] = productName
 
     return render_template("sentimentAnalysis.html", response=response)
+@app.route("/ingest", methods=["POST"])
+def ingestPOST():
+    data = request.get_json()
+    return data;
 
 if __name__ == '__main__':
     print("ok")
