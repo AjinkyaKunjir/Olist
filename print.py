@@ -3,6 +3,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
+recommendData = ()
 
 if __name__ == '__main__':
     print("ok")
@@ -47,10 +48,11 @@ def ingestPOST():
     print(type(data))
     recommendData[data["query"]] = data["items"]
     print(recommendData)
+    return recommendData
 
 @app.route("/ingest", methods=["GET"])
 def ingestPOST():
-    return recommentData
+    return recommendData
 
 if __name__ == '__main__':
     print("ok")
