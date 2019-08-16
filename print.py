@@ -41,7 +41,6 @@ def sentimentAnalysis():
         filteredDf = df[df['product_cat'] == productName]
         response = filteredDf.groupby(['Sentiment']).sum().to_dict()
         response['productName'] = productName
-        response['items'] = recommendData['baby']
 
     return render_template("sentimentAnalysis.html", response=response)
 
