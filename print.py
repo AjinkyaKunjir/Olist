@@ -44,6 +44,10 @@ def sentimentAnalysis():
 
     return render_template("sentimentAnalysis.html", response=response)
 
+
+@app.route("/ingest", methods=["GET"])
+def ingestPOST():
+    return recommendData
 if __name__ == '__main__':
     print("ok")
     app.run()
