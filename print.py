@@ -3,7 +3,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-recommendData = ()
+recommendData = {}
 
 if __name__ == '__main__':
     print("ok")
