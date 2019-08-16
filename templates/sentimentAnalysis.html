@@ -17,7 +17,13 @@
         <div>
             {% if response %}
                 Product Name: {{response.productName}}    
-                RECOMMEND ITEMS: {{response.items}}
+                RECOMMEND ITEMS: use for loop here
+                {% for item in response.items %}
+                    {{item}}
+
+                {% endfor %}
+
+
                 <table class="table">
                     <thead>
                         <tr>
