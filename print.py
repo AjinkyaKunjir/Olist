@@ -10,6 +10,8 @@ if __name__ == '__main__':
 else:
     print("no main found")
 
+recommendData = {}
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "GET":
@@ -22,7 +24,11 @@ def index():
             return render_template("CustomerAnalysis.html")
 @app.route("/heartbeat", methods=["GET", "POST"])
 def heartbeat():
-    return "200 OK";
+    return "200 OK"
+
+@app.route("/ingest", methods=["GET"])
+def ingestPOST():
+    return recommendData
 
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
