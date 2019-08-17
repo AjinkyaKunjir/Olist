@@ -53,7 +53,7 @@ def sentimentAnalysis():
 
 @app.route("/ingest", methods=["POST"])
 def ingestPOST():
-    data = request.get_json()
+    data = flask.request.json
     print(type(data))
     recommendData[data["query"]] = data["items"]
     print(recommendData)
