@@ -64,17 +64,6 @@ def sentimentAnalysis():
  #   return recommendData
 
 
-@app.route("/ingest", methods=["GET"])
-def ingestGET():
-    return recommendData
-
-@app.route("/ingest", methods=["POST"])
-def ingestPOST():
-    data = request.get_json()
-    print(type(data))
-    recommendData[data["query"]] = data["items"]
-    print(recommendData)
-    return recommendData
 
 
 if __name__ == '__main__':
