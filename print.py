@@ -3,18 +3,15 @@ import pandas as pd
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
+
 #recommendData = ()
-=======
-recommendData = {}
->>>>>>> 65c127b7a67f131edde46fae36a304ace8b1f0fb
+
 
 if __name__ == '__main__':
     print("ok")
 else:
     print("no main found")
 
-recommendData = {}
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -53,7 +50,7 @@ def sentimentAnalysis():
 
     return render_template("sentimentAnalysis.html", response=response)
 
-<<<<<<< HEAD
+
 #@app.route("/ingest", methods=["POST"])
 #def ingestPOST():
 #    data = request.get_json()
@@ -65,7 +62,7 @@ def sentimentAnalysis():
 #@app.route("/ingest", methods=["GET"])
 #def ingestPOST():
  #   return recommendData
-=======
+
 
 @app.route("/ingest", methods=["GET"])
 def ingestGET():
@@ -78,7 +75,7 @@ def ingestPOST():
     recommendData[data["query"]] = data["items"]
     print(recommendData)
     return recommendData
->>>>>>> 65c127b7a67f131edde46fae36a304ace8b1f0fb
+
 
 if __name__ == '__main__':
     print("ok")
