@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 
-recommendData = ()
+#recommendData = ()
 
 
 if __name__ == '__main__':
@@ -27,10 +27,12 @@ def index():
             return render_template("purchasing.html")
         elif usecase == 'mqlAnalysis':
             return render_template("mqlAnalysis.html")
+        elif usecase == 'ProductRecommendation':
+            return render_template("productRecommendation.html")
             
-@app.route("/heartbeat", methods=["GET", "POST"])
+'''@app.route("/heartbeat", methods=["GET", "POST"])
 def heartbeat():
-    return "200 OK"
+    return "200 OK"'''
 
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
@@ -51,13 +53,13 @@ def sentimentAnalysis():
     return render_template("sentimentAnalysis.html", response=response)
 
 
-@app.route("/ingest", methods=["POST"])
+@'''app.route("/ingest", methods=["POST"])
 def ingestPOST():
     data = flask.request.json
     print(type(data))
     recommendData[data["query"]] = data["items"]
     print(recommendData)
-    return recommendData
+    return recommendData'''
 
 '''@app.route("/ingest", methods=["GET"])
 def ingestPOST():
