@@ -4,8 +4,6 @@ import pandas as pd
 app = Flask(__name__)
 
 
-#recommendData = ()
-
 
 if __name__ == '__main__':
     print("ok")
@@ -30,9 +28,6 @@ def index():
         elif usecase == 'ProductRecommendation':
             return render_template("productRecommendation.html")
             
-'''@app.route("/heartbeat", methods=["GET", "POST"])
-def heartbeat():
-    return "200 OK"'''
 
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
@@ -53,17 +48,6 @@ def sentimentAnalysis():
     return render_template("sentimentAnalysis.html", response=response)
 
 
-@'''app.route("/ingest", methods=["POST"])
-def ingestPOST():
-    data = flask.request.json
-    print(type(data))
-    recommendData[data["query"]] = data["items"]
-    print(recommendData)
-    return recommendData'''
-
-'''@app.route("/ingest", methods=["GET"])
-def ingestPOST():
-    return recommendData'''
 
 
 
