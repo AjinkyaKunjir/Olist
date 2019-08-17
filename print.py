@@ -59,9 +59,9 @@ def ingestPOST():
     print(recommendData)
     return recommendData
 
-@app.route("/ingest", methods=["GET"])
+'''@app.route("/ingest", methods=["GET"])
 def ingestPOST():
- #   return recommendData
+    return recommendData'''
 
 
 
