@@ -3,12 +3,18 @@ import pandas as pd
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
 #recommendData = ()
+=======
+recommendData = {}
+>>>>>>> 65c127b7a67f131edde46fae36a304ace8b1f0fb
 
 if __name__ == '__main__':
     print("ok")
 else:
     print("no main found")
+
+recommendData = {}
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -27,7 +33,7 @@ def index():
             
 @app.route("/heartbeat", methods=["GET", "POST"])
 def heartbeat():
-    return "200 OK";
+    return "200 OK"
 
 @app.route("/sentimentAnalysis", methods=["GET", "POST"])
 def sentimentAnalysis():
@@ -47,6 +53,7 @@ def sentimentAnalysis():
 
     return render_template("sentimentAnalysis.html", response=response)
 
+<<<<<<< HEAD
 #@app.route("/ingest", methods=["POST"])
 #def ingestPOST():
 #    data = request.get_json()
@@ -58,6 +65,20 @@ def sentimentAnalysis():
 #@app.route("/ingest", methods=["GET"])
 #def ingestPOST():
  #   return recommendData
+=======
+
+@app.route("/ingest", methods=["GET"])
+def ingestGET():
+    return recommendData
+
+@app.route("/ingest", methods=["POST"])
+def ingestPOST():
+    data = request.get_json()
+    print(type(data))
+    recommendData[data["query"]] = data["items"]
+    print(recommendData)
+    return recommendData
+>>>>>>> 65c127b7a67f131edde46fae36a304ace8b1f0fb
 
 if __name__ == '__main__':
     print("ok")
