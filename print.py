@@ -3,7 +3,7 @@ import pandas as pd
 
 app = Flask(__name__)
 
-recommendData = ()
+#recommendData = ()
 
 if __name__ == '__main__':
     print("ok")
@@ -20,6 +20,11 @@ def index():
             return render_template("sentimentAnalysis.html")
         elif usecase == 'CustomerAnalysis': 
             return render_template("CustomerAnalysis.html")
+        elif usecase == 'PurchaseAnalysis':
+            return render_template("purchasing.html")
+        elif usecase == 'mqlAnalysis':
+            return render_template("mqlAnalysis.html")
+            
 @app.route("/heartbeat", methods=["GET", "POST"])
 def heartbeat():
     return "200 OK";
@@ -42,17 +47,17 @@ def sentimentAnalysis():
 
     return render_template("sentimentAnalysis.html", response=response)
 
-@app.route("/ingest", methods=["POST"])
-def ingestPOST():
-    data = request.get_json()
-    print(type(data))
-    recommendData[data["query"]] = data["items"]
-    print(recommendData)
-    return recommendData
+#@app.route("/ingest", methods=["POST"])
+#def ingestPOST():
+#    data = request.get_json()
+#    print(type(data))
+#    recommendData[data["query"]] = data["items"]
+#    print(recommendData)
+#    return recommendData
 
-@app.route("/ingest", methods=["GET"])
-def ingestPOST():
-    return recommendData
+#@app.route("/ingest", methods=["GET"])
+#def ingestPOST():
+ #   return recommendData
 
 if __name__ == '__main__':
     print("ok")
